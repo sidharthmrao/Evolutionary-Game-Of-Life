@@ -1,5 +1,10 @@
 import time
 import copy
+import random
+
+generations = 5
+timer = 1
+evolute = .01
 
 game = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -76,7 +81,9 @@ def update():
                 newgame[y][x] = 1
             if check == 4:
                 newgame[y][x] = 0
-    
+            evolve = random.random()
+            if evolve <= evolute:
+                newgame[y][x] = 1
     return newgame
 
 def arreplace(gamearray, target, replaced, target2, replaced2):
@@ -89,9 +96,7 @@ def arreplace(gamearray, target, replaced, target2, replaced2):
     
     return arr
 
-generations = 5
-timer = 1
-evolute = 0
+
 
 print(f"______________gen: original_______")
 for y in game:
